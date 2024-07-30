@@ -48,7 +48,9 @@ const ButtonSignin = ({ text = "Get started", extraStyle }) => {
 
   return (
     <button
-      className={`btn ${extraStyle ? extraStyle : ""}`}
+      className={`px-4 py-1.5 border-[2px] border-white rounded-xl text-white font-medium hover:bg-white hover:text-black transition-all duration-300 ${
+        extraStyle ? extraStyle : ""
+      }`}
       onClick={handleClick}
     >
       {text}

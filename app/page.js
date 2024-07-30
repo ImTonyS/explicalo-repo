@@ -3,24 +3,29 @@ import ButtonSignin from "@/components/ButtonSignin";
 
 export default function Page() {
   return (
-    <>
-      <header className="p-4 flex justify-end max-w-7xl mx-auto">
-        <ButtonSignin text="Login" />
+    <main className="h-screen bg-gradient-to-br from-black to-primary">
+      <header className="p-6 pt-8 px-8 flex justify-between items-center  max-w-7xl mx-auto">
+        <h1 className="text-xl font-bold text-white">Explícalo.</h1>
+        <ButtonSignin text="Inicia Sesión" />
       </header>
-      <main>
-        <section className="flex flex-col items-center justify-center text-center gap-12 px-8 py-24">
-          <h1 className="text-3xl font-extrabold">Ship Fast ⚡️</h1>
 
-          <p className="text-lg opacity-80">
-            The start of your new startup... What are you gonna build?
-          </p>
+      <section className="flex flex-col items-center justify-center text-center gap-12 px-8 py-32 ">
+        <h1 className="text-sm md:text-lg font-medium text-white">
+          ¿Alguna vez deseaste que te hubieran explicado de otra manera?
+        </h1>
+        <h1 className="text-7xl sm:text-7xl md:text-9xl font-extrabold text-white">
+          Explícalo.
+        </h1>
+        <h1 className="text-sm md:text-lg font-medium text-white">
+          Seguro alguien está pasando por lo mismo.
+        </h1>
 
-          <a
-            className="btn btn-primary"
-            href="https://shipfa.st/docs"
-            target="_blank"
+        <div className="flex gap-x-4">
+          <Link
+            className="px-5 py-3 bg-primaryDark rounded-md flex items-center gap-1 text-white text-sm hover:bg-primaryLight hover:text-black transition-all duration-300"
+            href="/postBlog"
           >
-            Documentation & tutorials{" "}
+            Publica{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -33,13 +38,30 @@ export default function Page() {
                 clipRule="evenodd"
               />
             </svg>
-          </a>
-
-          <Link href="/blog" className="link link-hover text-sm">
-            Fancy a blog?
           </Link>
-        </section>
-      </main>
-    </>
+          <Link
+            className="px-5 py-2  rounded-md flex items-center gap-2 text-white text-sm hover:bg-primaryLight hover:text-black transition-all duration-300"
+            href="https://shipfa.st/docs"
+            target="_blank"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+              />
+            </svg>
+            Descubre{" "}
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }

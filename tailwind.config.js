@@ -7,6 +7,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+      },
+      colors: {
+        primary: "#3eb0f3",
+        primaryLight: "#6ec4f6",
+        primaryDark: "#0f9cef",
+        secondary: "#f3bd3e",
+        secondaryLight: "#f6cd6e",
+        secondaryDark: "#efac0f",
+        success: "#3ef33e",
+        error: "#f33e3e",
+        warning: "#f3bd3e",
+        info: "#3eb0f3",
+      },
       backgroundImage: {
         gradient:
           "linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)",
