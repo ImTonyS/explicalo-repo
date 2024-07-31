@@ -19,7 +19,7 @@ export default async function Blog() {
     <>
       <section className="text-center max-w-xl mx-auto mt-12 mb-24 md:mb-32">
         <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-6">
-          The {config.appName} Blog
+          Descubre lo explicado.
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
           Learn how to ship your startup in days, not weeks. And get the latest

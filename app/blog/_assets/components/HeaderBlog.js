@@ -149,7 +149,7 @@ const HeaderBlog = () => {
   }, [searchParams]);
 
   return (
-    <header className="bg-base-200">
+    <header className="bg-primaryDark">
       <nav className="max-w-7xl flex items-center justify-between px-8 py-3 mx-auto">
         {/* Your logo/name on large screens */}
         <div className="flex lg:flex-1">
@@ -158,22 +158,16 @@ const HeaderBlog = () => {
             href="/"
             title={`${config.appName} hompage`}
           >
-            <Image
-              src={logo}
-              alt={`${config.appName} logo`}
-              className="w-8"
-              priority={true}
-              width={32}
-              height={32}
-            />
-            <span className="font-extrabold text-lg">{config.appName}</span>
+            <span className="font-extrabold text-lg text-white">
+              Explícalo.
+            </span>
           </Link>
         </div>
         {/* Burger button to open menu on mobile */}
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-box p-2.5"
+            className="-m-2.5 inline-flex items-center justify-center rounded-box p-2.5 "
             onClick={() => setIsOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -181,8 +175,8 @@ const HeaderBlog = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
+              strokeWidth={2}
+              stroke="white"
               className="w-6 h-6 text-base-content"
             >
               <path
@@ -211,7 +205,6 @@ const HeaderBlog = () => {
         </div>
 
         {/* CTA on large screens */}
-        <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
       </nav>
 
       {/* Mobile menu, show/hide based on menu state. */}
@@ -226,16 +219,9 @@ const HeaderBlog = () => {
               title={`${config.appName} hompage`}
               href="/"
             >
-              <Image
-                src={logo}
-                alt={`${config.appName} logo`}
-                className="w-8"
-                placeholder="blur"
-                priority={true}
-                width={32}
-                height={32}
-              />
-              <span className="font-extrabold text-lg">{config.appName}</span>
+              <span className="font-extrabold text-lg text-secondary">
+                Explícalo.
+              </span>
             </Link>
             <button
               type="button"
@@ -279,7 +265,6 @@ const HeaderBlog = () => {
             </div>
             <div className="divider"></div>
             {/* Your CTA on small screens */}
-            <div className="flex flex-col">{cta}</div>
           </div>
         </div>
       </div>
