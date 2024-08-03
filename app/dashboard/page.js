@@ -107,7 +107,7 @@ const Dashboard = () => {
               ))}
             </ul>
           ) : (
-            <p>You haven't created any blogs yet.</p>
+            <p>No tienes ningn blog creado.</p>
           )}
         </div>
       </section>
