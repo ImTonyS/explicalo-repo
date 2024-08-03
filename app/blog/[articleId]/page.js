@@ -1,15 +1,14 @@
 import Link from "next/link";
 import Script from "next/script";
-import BadgeCategory from "../_assets/components/BadgeCategory";
-import Avatar from "../_assets/components/Avatar";
-import { getSEOTags } from "@/libs/seo";
 import config from "@/config";
 import connectMongo from "@/libs/mongoose";
 import Blogs from "@/models/Blogs";
 
 export default async function Article({ params }) {
+  
   await connectMongo();
-  const blog = await Blogs.findOne({ id: params.blogId  });
+  const blog = await Blogs.findOne({ _id: params.articleId  });
+ 
 
   if (!blog) {
     return <div>Blog no encontrado</div>;

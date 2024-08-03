@@ -5,17 +5,17 @@ import { useRouter } from "next/navigation";
 import apiClient from "@/libs/api";
 
 const EditBlogPage = ({ params }) => {
-  const [blog, setBlog] = useState({ name: "", content: "" });
+  const [blog, setBlog] = useState({ name: "", content: "", intro: "" });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const router = useRouter();
-  const { id } = params;
+  const { articleId } = params;
 
   useEffect(() => {
-    console.log("id", id);
+    console.log("id", articleId);
     const fetchBlog = async () => {
       try {
-        const response = await apiClient.get(`/blogs/${id}`);
+        const response = await apiClient.get(`/blogs/${articleId}`);
         setBlog(response.blog);
       } catch (error) {
         console.error("Error fetching blog:", error);
@@ -26,13 +26,13 @@ const EditBlogPage = ({ params }) => {
     };
 
     fetchBlog();
-  }, [id]);
+  }, [articleId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await apiClient.put(`/blogs/${id}`, blog);
+      await apiClient.put(`/blogs/${articleId}`, blog);
       router.push("/dashboard");
     } catch (error) {
       console.error("Error updating blog:", error);
@@ -73,6 +73,17 @@ const EditBlogPage = ({ params }) => {
             />
           </div>
           <div>
+            <label htmlFor="intro" className="block mb-2">Introduction</label>
+            <textarea
+              id="intro"
+              name="intro"
+              value={blog.intro}
+              onChange={handleChange}
+              className="w-full p-2 border rounded h-32"
+              required
+            />
+          </div>
+          <div>
             <label htmlFor="content" className="block mb-2">Content</label>
             <textarea
               id="content"
@@ -83,6 +94,7 @@ const EditBlogPage = ({ params }) => {
               required
             />
           </div>
+          
           <button
             type="submit"
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
