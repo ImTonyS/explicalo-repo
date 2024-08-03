@@ -93,7 +93,7 @@ const Dashboard = () => {
             <ul className="space-y-4">
               {blogs.map((blog) => (
                 blog.status && (
-                  <li key={blog.id} className="border p-4 rounded-lg flex justify-between items-center">
+                  <li key={blog.id} className="border p-4 rounded-lg flex-col gap-6 md:flex-row justify-between items-center">
                     <div>
                       <h3 className="text-xl font-semibold">{blog.name}</h3>
                       <p className="text-gray-600">{blog.author}</p>

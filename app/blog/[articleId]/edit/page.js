@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import apiClient from "@/libs/api";
+import Link from "next/link";
+import ButtonAccount from "@/components/ButtonAccount";
 
 const EditBlogPage = ({ params }) => {
   const [blog, setBlog] = useState({ name: "", content: "", intro: "" });
@@ -56,9 +58,30 @@ const EditBlogPage = ({ params }) => {
   }
 
   return (
-    <main className="min-h-screen p-8">
+    <main className="min-h-screen md:p-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Edit Blog</h1>
+        <div className="flex justify-between items-center">
+        <Link
+          href="/dashboard"
+          className="link !no-underline text-base-content/80 hover:text-base-content inline-flex items-center gap-1"
+          title="Back to Blog"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              fillRule="evenodd"
+              d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
+              clipRule="evenodd"
+            />
+          </svg>
+            Regresar a posts 
+          </Link>
+          <ButtonAccount />
+        </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block mb-2">Title</label>
