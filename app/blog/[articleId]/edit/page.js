@@ -50,7 +50,7 @@ const EditBlogPage = ({ params }) => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   if (error) {
@@ -58,7 +58,7 @@ const EditBlogPage = ({ params }) => {
   }
 
   return (
-    <main className="min-h-screen md:p-8">
+    <main className="min-h-screen md:p-8 ">
       <div className="max-w-2xl mx-auto">
         <div className="flex justify-between items-center">
         <Link
@@ -84,7 +84,7 @@ const EditBlogPage = ({ params }) => {
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block mb-2">Title</label>
+            <label htmlFor="name" className="block mb-2">Título</label>
             <input
               type="text"
               id="name"
@@ -96,7 +96,7 @@ const EditBlogPage = ({ params }) => {
             />
           </div>
           <div>
-            <label htmlFor="intro" className="block mb-2">Introduction</label>
+            <label htmlFor="intro" className="block mb-2">Introducción</label>
             <textarea
               id="intro"
               name="intro"
@@ -107,7 +107,7 @@ const EditBlogPage = ({ params }) => {
             />
           </div>
           <div>
-            <label htmlFor="content" className="block mb-2">Content</label>
+            <label htmlFor="content" className="block mb-2">Contenido</label>
             <textarea
               id="content"
               name="content"
@@ -123,7 +123,7 @@ const EditBlogPage = ({ params }) => {
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
             disabled={isLoading}
           >
-            {isLoading ? "Updating..." : "Update Blog"}
+            {isLoading ? "Actualizando..." : "Actualizar Blog"}
           </button>
         </form>
       </div>

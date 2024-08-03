@@ -91,7 +91,7 @@ export default async function Article({ params }) {
             <img
               src={blog.image}
               alt={blog.name}
-              className="w-full max-w-[500px] max-h-[300px]  rounded-lg mt-6"
+              className="w-full   rounded-lg mt-6"
             />
           )}
         </section>

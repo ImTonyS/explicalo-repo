@@ -17,7 +17,7 @@ export const metadata = getSEOTags({
 export default async function BlogPage() {
   
   await connectMongo()
-  const blogs = await Blogs.find({});
+  const blogs = await Blogs.find({ status: true });
 
   return (
     <>
@@ -49,26 +49,23 @@ export default async function BlogPage() {
           Descubre lo explicado.
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          Learn how to ship your startup in days, not weeks. And get the latest
-          updates about the boilerplate
+          Aqui puedes encontrar todos los articulos de explicalo. Encuentra el que necesites y si no encuentras el que buscas, puedes crearlo.
         </p>
       </section>
 
-      <section className="grid lg:grid-cols-2 mb-12 md:mb-12 gap-8">
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-          {blogs.map((blog) => (
-            <div key={blog._id} className="card bg-base-200 shadow-xl">
-              <div className="card-body">
-                <h2 className="card-title">{blog.name}</h2>
-                <p>{blog.intro}</p>
-                <p>Creado por: {blog.author}</p>
-                <div className="card-actions justify-end">
-                  <Link href={`/blog/${blog.id}`} className="bg-primary px-4 py-2 rounded-md text-white font-semibold hover:bg-primary/80 transition-all duration-300">Leer mas</Link>
-                </div>
+      <section className="grid grid-cols-1 lg:grid-cols-2 my-12 md:my-12 gap-8 max-w-2xl mx-auto">
+        {blogs.map((blog) => (
+          <div key={blog._id} className="card bg-base-200 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">{blog.name}</h2>
+
+              <p className="text-sm font-medium opacity-80">Creado por: {blog.author}</p>
+              <div className="card-actions justify-end">
+                <Link href={`/blog/${blog.id}`} className="bg-primary px-4 py-2 rounded-md text-white font-semibold hover:bg-primary/80 transition-all duration-300">Leer mas</Link>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </section>
 
       
