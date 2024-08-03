@@ -189,20 +189,7 @@ const HeaderBlog = () => {
         </div>
 
         {/* Your links on large screens */}
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
-          {links.map((link) => (
-            <Link
-              href={link.href}
-              key={link.href}
-              className="link link-hover text-base-content/80 hover:text-base-content active:text-base-content focus:text-base-content duration-100"
-              title={link.label}
-            >
-              {link.label}
-            </Link>
-          ))}
-
-          <ButtonPopoverCategories />
-        </div>
+        
 
         {/* CTA on large screens */}
       </nav>
@@ -246,27 +233,10 @@ const HeaderBlog = () => {
             </button>
           </div>
 
-          {/* Your links on small screens */}
-          <div className="flow-root mt-6">
-            <div className="py-4">
-              <div className="flex flex-col gap-y-4 items-start">
-                {links.map((link) => (
-                  <Link
-                    href={link.href}
-                    key={link.href}
-                    className="link link-hover"
-                    title={link.label}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <ButtonAccordionCategories />
-              </div>
-            </div>
-            <div className="divider"></div>
-            {/* Your CTA on small screens */}
+     
           </div>
-        </div>
+        
+       
       </div>
     </header>
   );

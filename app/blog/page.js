@@ -3,6 +3,9 @@ import CardArticle from "./_assets/components/CardArticle";
 import CardCategory from "./_assets/components/CardCategory";
 import config from "@/config";
 import { getSEOTags } from "@/libs/seo";
+import connectMongo from "@/libs/mongoose";
+import Blogs from "@/models/Blogs";
+import Link from "next/link";
 
 export const metadata = getSEOTags({
   title: `${config.appName} Blog | Stripe Chargeback Protection`,
@@ -11,13 +14,14 @@ export const metadata = getSEOTags({
   canonicalUrlRelative: "/blog",
 });
 
-export default async function Blog() {
-  const articlesToDisplay = articles
-    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-    .slice(0, 6);
+export default async function BlogPage() {
+  
+  await connectMongo()
+  const blogs = await Blogs.find({});
+
   return (
     <>
-      <section className="text-center max-w-xl mx-auto mt-12 mb-24 md:mb-32">
+      <section className="text-center max-w-xl mx-auto mt-12 mb-12 md:mb-12">
         <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-6">
           Descubre lo explicado.
         </h1>
@@ -27,27 +31,22 @@ export default async function Blog() {
         </p>
       </section>
 
-      <section className="grid lg:grid-cols-2 mb-24 md:mb-32 gap-8">
-        {articlesToDisplay.map((article, i) => (
-          <CardArticle
-            article={article}
-            key={article.slug}
-            isImagePriority={i <= 2}
-          />
+      <section className="grid lg:grid-cols-2 mb-12 md:mb-12 gap-8">
+        {blogs.map((blog) => (
+          <div key={blog._id} className="card bg-base-200 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">{blog.name}</h2>
+              <p>{blog.intro}</p>
+              <p>Creado por: {blog.author}</p>
+              <div className="card-actions justify-end">
+                <Link href={`/blog/${blog.id}`} className="bg-primary px-4 py-2 rounded-md text-white font-semibold hover:bg-primary/80 transition-all duration-300">Leer mas</Link>
+              </div>
+            </div>
+          </div>
         ))}
       </section>
 
-      <section>
-        <p className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12">
-          Browse articles by category
-        </p>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {categories.map((category) => (
-            <CardCategory key={category.slug} category={category} tag="div" />
-          ))}
-        </div>
-      </section>
+      
     </>
   );
 }

@@ -35,14 +35,7 @@ const CardArticle = ({
         </Link>
       )}
       <div className="card-body">
-        {/* CATEGORIES */}
-        {showCategory && (
-          <div className="flex flex-wrap gap-2">
-            {article.categories.map((category) => (
-              <BadgeCategory category={category} key={category.slug} />
-            ))}
-          </div>
-        )}
+  
 
         {/* TITLE WITH RIGHT TAG */}
         <TitleTag className="mb-1 text-xl md:text-2xl font-bold">
